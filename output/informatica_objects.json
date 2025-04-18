@@ -1,0 +1,752 @@
+{
+  "INF_REP_DEV": {
+    "m_refine_customersalesreport": {
+      "SQ_FactInternetSales": {
+        "ProductKey": {
+          "id": 226
+        },
+        "OrderDateKey": {
+          "id": 227
+        },
+        "DueDateKey": {
+          "id": 228
+        },
+        "ShipDateKey": {
+          "id": 229
+        },
+        "CustomerKey": {
+          "id": 230
+        },
+        "PromotionKey": {
+          "id": 231
+        },
+        "CurrencyKey": {
+          "id": 232
+        },
+        "SalesTerritoryKey": {
+          "id": 233
+        },
+        "SalesOrderNumber": {
+          "id": 234
+        },
+        "SalesOrderLineNumber": {
+          "id": 235
+        },
+        "RevisionNumber": {
+          "id": 236
+        },
+        "OrderQuantity": {
+          "id": 237
+        },
+        "UnitPrice": {
+          "id": 238
+        },
+        "ExtendedAmount": {
+          "id": 239
+        },
+        "UnitPriceDiscountPct": {
+          "id": 240
+        },
+        "DiscountAmount": {
+          "id": 241
+        },
+        "ProductStandardCost": {
+          "id": 242
+        },
+        "TotalProductCost": {
+          "id": 243
+        },
+        "SalesAmount": {
+          "id": 244
+        },
+        "TaxAmt": {
+          "id": 245
+        },
+        "Freight": {
+          "id": 246
+        },
+        "CarrierTrackingNumber": {
+          "id": 247
+        },
+        "CustomerPONumber": {
+          "id": 248
+        },
+        "OrderDate": {
+          "id": 249
+        },
+        "DueDate": {
+          "id": 250
+        },
+        "ShipDate": {
+          "id": 251
+        }
+      },
+      "SQ_DimCustomer": {
+        "CustomerKey": {
+          "id": 252
+        },
+        "GeographyKey": {
+          "id": 253
+        },
+        "CustomerAlternateKey": {
+          "id": 254
+        },
+        "Title": {
+          "id": 255
+        },
+        "FirstName": {
+          "id": 256
+        },
+        "MiddleName": {
+          "id": 257
+        },
+        "LastName": {
+          "id": 258
+        },
+        "NameStyle": {
+          "id": 259
+        },
+        "BirthDate": {
+          "id": 260
+        },
+        "MaritalStatus": {
+          "id": 261
+        },
+        "Suffix": {
+          "id": 262
+        },
+        "Gender": {
+          "id": 263
+        },
+        "EmailAddress": {
+          "id": 264
+        },
+        "YearlyIncome": {
+          "id": 265
+        },
+        "TotalChildren": {
+          "id": 266
+        },
+        "NumberChildrenAtHome": {
+          "id": 267
+        },
+        "EnglishEducation": {
+          "id": 268
+        },
+        "SpanishEducation": {
+          "id": 269
+        },
+        "FrenchEducation": {
+          "id": 270
+        },
+        "EnglishOccupation": {
+          "id": 271
+        },
+        "SpanishOccupation": {
+          "id": 272
+        },
+        "FrenchOccupation": {
+          "id": 273
+        },
+        "HouseOwnerFlag": {
+          "id": 274
+        },
+        "NumberCarsOwned": {
+          "id": 275
+        },
+        "AddressLine1": {
+          "id": 276
+        },
+        "AddressLine2": {
+          "id": 277
+        },
+        "Phone": {
+          "id": 278
+        },
+        "DateFirstPurchase": {
+          "id": 279
+        },
+        "CommuteDistance": {
+          "id": 280
+        }
+      },
+      "join_Customer_InternetSales": {
+        "ProductKey": {
+          "id": 281
+        },
+        "OrderDateKey": {
+          "id": 282
+        },
+        "DueDateKey": {
+          "id": 283
+        },
+        "ShipDateKey": {
+          "id": 284
+        },
+        "CustomerKey": {
+          "id": 285
+        },
+        "PromotionKey": {
+          "id": 286
+        },
+        "CurrencyKey": {
+          "id": 287
+        },
+        "SalesTerritoryKey": {
+          "id": 288
+        },
+        "SalesOrderNumber": {
+          "id": 289
+        },
+        "SalesOrderLineNumber": {
+          "id": 290
+        },
+        "RevisionNumber": {
+          "id": 291
+        },
+        "OrderQuantity": {
+          "id": 292
+        },
+        "UnitPrice": {
+          "id": 293
+        },
+        "ExtendedAmount": {
+          "id": 294
+        },
+        "UnitPriceDiscountPct": {
+          "id": 295
+        },
+        "DiscountAmount": {
+          "id": 296
+        },
+        "ProductStandardCost": {
+          "id": 297
+        },
+        "TotalProductCost": {
+          "id": 298
+        },
+        "SalesAmount": {
+          "id": 299
+        },
+        "TaxAmt": {
+          "id": 300
+        },
+        "Freight": {
+          "id": 301
+        },
+        "CarrierTrackingNumber": {
+          "id": 302
+        },
+        "CustomerPONumber": {
+          "id": 303
+        },
+        "OrderDate": {
+          "id": 304
+        },
+        "DueDate": {
+          "id": 305
+        },
+        "ShipDate": {
+          "id": 306
+        },
+        "CustomerKey1": {
+          "id": 307
+        },
+        "GeographyKey": {
+          "id": 308
+        },
+        "CustomerAlternateKey": {
+          "id": 309
+        },
+        "Title": {
+          "id": 310
+        },
+        "FirstName": {
+          "id": 311
+        },
+        "MiddleName": {
+          "id": 312
+        },
+        "LastName": {
+          "id": 313
+        },
+        "NameStyle": {
+          "id": 314
+        },
+        "BirthDate": {
+          "id": 315
+        },
+        "MaritalStatus": {
+          "id": 316
+        },
+        "Suffix": {
+          "id": 317
+        },
+        "Gender": {
+          "id": 318
+        },
+        "EmailAddress": {
+          "id": 319
+        },
+        "YearlyIncome": {
+          "id": 320
+        },
+        "TotalChildren": {
+          "id": 321
+        },
+        "NumberChildrenAtHome": {
+          "id": 322
+        },
+        "EnglishEducation": {
+          "id": 323
+        },
+        "SpanishEducation": {
+          "id": 324
+        },
+        "FrenchEducation": {
+          "id": 325
+        },
+        "EnglishOccupation": {
+          "id": 326
+        },
+        "SpanishOccupation": {
+          "id": 327
+        },
+        "FrenchOccupation": {
+          "id": 328
+        },
+        "HouseOwnerFlag": {
+          "id": 329
+        },
+        "NumberCarsOwned": {
+          "id": 330
+        },
+        "AddressLine1": {
+          "id": 331
+        },
+        "AddressLine2": {
+          "id": 332
+        },
+        "Phone": {
+          "id": 333
+        },
+        "DateFirstPurchase": {
+          "id": 334
+        },
+        "CommuteDistance": {
+          "id": 335
+        }
+      },
+      "concat_fullname": {
+        "FirstName": {
+          "id": 336
+        },
+        "NewFullName": {
+          "id": 337
+        },
+        "MiddleName": {
+          "id": 338
+        },
+        "LastName": {
+          "id": 339
+        }
+      }
+    },
+    "m_orderentry_internetsales": {
+      "SQ_ORDER_ITEMS": {
+        "ORDER_ID": {
+          "id": 340
+        },
+        "LINE_ITEM_ID": {
+          "id": 341
+        },
+        "PRODUCT_ID": {
+          "id": 342
+        },
+        "UNIT_PRICE": {
+          "id": 343
+        },
+        "QUANTITY": {
+          "id": 344
+        }
+      }
+    },
+    "collibra_sample": {
+      "oracle": {
+        "m_orderentry_internetsales": {
+          "SQ_ORDER_ITEMS": {
+            "ORDER_ID": {
+              "id": 340
+            },
+            "LINE_ITEM_ID": {
+              "id": 341
+            },
+            "PRODUCT_ID": {
+              "id": 342
+            },
+            "UNIT_PRICE": {
+              "id": 343
+            },
+            "QUANTITY": {
+              "id": 344
+            }
+          }
+        }
+      },
+      "sql": {
+        "m_refine_customersalesreport": {
+          "SQ_FactInternetSales": {
+            "ProductKey": {
+              "id": 226
+            },
+            "OrderDateKey": {
+              "id": 227
+            },
+            "DueDateKey": {
+              "id": 228
+            },
+            "ShipDateKey": {
+              "id": 229
+            },
+            "CustomerKey": {
+              "id": 230
+            },
+            "PromotionKey": {
+              "id": 231
+            },
+            "CurrencyKey": {
+              "id": 232
+            },
+            "SalesTerritoryKey": {
+              "id": 233
+            },
+            "SalesOrderNumber": {
+              "id": 234
+            },
+            "SalesOrderLineNumber": {
+              "id": 235
+            },
+            "RevisionNumber": {
+              "id": 236
+            },
+            "OrderQuantity": {
+              "id": 237
+            },
+            "UnitPrice": {
+              "id": 238
+            },
+            "ExtendedAmount": {
+              "id": 239
+            },
+            "UnitPriceDiscountPct": {
+              "id": 240
+            },
+            "DiscountAmount": {
+              "id": 241
+            },
+            "ProductStandardCost": {
+              "id": 242
+            },
+            "TotalProductCost": {
+              "id": 243
+            },
+            "SalesAmount": {
+              "id": 244
+            },
+            "TaxAmt": {
+              "id": 245
+            },
+            "Freight": {
+              "id": 246
+            },
+            "CarrierTrackingNumber": {
+              "id": 247
+            },
+            "CustomerPONumber": {
+              "id": 248
+            },
+            "OrderDate": {
+              "id": 249
+            },
+            "DueDate": {
+              "id": 250
+            },
+            "ShipDate": {
+              "id": 251
+            }
+          },
+          "SQ_DimCustomer": {
+            "CustomerKey": {
+              "id": 252
+            },
+            "GeographyKey": {
+              "id": 253
+            },
+            "CustomerAlternateKey": {
+              "id": 254
+            },
+            "Title": {
+              "id": 255
+            },
+            "FirstName": {
+              "id": 256
+            },
+            "MiddleName": {
+              "id": 257
+            },
+            "LastName": {
+              "id": 258
+            },
+            "NameStyle": {
+              "id": 259
+            },
+            "BirthDate": {
+              "id": 260
+            },
+            "MaritalStatus": {
+              "id": 261
+            },
+            "Suffix": {
+              "id": 262
+            },
+            "Gender": {
+              "id": 263
+            },
+            "EmailAddress": {
+              "id": 264
+            },
+            "YearlyIncome": {
+              "id": 265
+            },
+            "TotalChildren": {
+              "id": 266
+            },
+            "NumberChildrenAtHome": {
+              "id": 267
+            },
+            "EnglishEducation": {
+              "id": 268
+            },
+            "SpanishEducation": {
+              "id": 269
+            },
+            "FrenchEducation": {
+              "id": 270
+            },
+            "EnglishOccupation": {
+              "id": 271
+            },
+            "SpanishOccupation": {
+              "id": 272
+            },
+            "FrenchOccupation": {
+              "id": 273
+            },
+            "HouseOwnerFlag": {
+              "id": 274
+            },
+            "NumberCarsOwned": {
+              "id": 275
+            },
+            "AddressLine1": {
+              "id": 276
+            },
+            "AddressLine2": {
+              "id": 277
+            },
+            "Phone": {
+              "id": 278
+            },
+            "DateFirstPurchase": {
+              "id": 279
+            },
+            "CommuteDistance": {
+              "id": 280
+            }
+          },
+          "join_Customer_InternetSales": {
+            "ProductKey": {
+              "id": 281
+            },
+            "OrderDateKey": {
+              "id": 282
+            },
+            "DueDateKey": {
+              "id": 283
+            },
+            "ShipDateKey": {
+              "id": 284
+            },
+            "CustomerKey": {
+              "id": 285
+            },
+            "PromotionKey": {
+              "id": 286
+            },
+            "CurrencyKey": {
+              "id": 287
+            },
+            "SalesTerritoryKey": {
+              "id": 288
+            },
+            "SalesOrderNumber": {
+              "id": 289
+            },
+            "SalesOrderLineNumber": {
+              "id": 290
+            },
+            "RevisionNumber": {
+              "id": 291
+            },
+            "OrderQuantity": {
+              "id": 292
+            },
+            "UnitPrice": {
+              "id": 293
+            },
+            "ExtendedAmount": {
+              "id": 294
+            },
+            "UnitPriceDiscountPct": {
+              "id": 295
+            },
+            "DiscountAmount": {
+              "id": 296
+            },
+            "ProductStandardCost": {
+              "id": 297
+            },
+            "TotalProductCost": {
+              "id": 298
+            },
+            "SalesAmount": {
+              "id": 299
+            },
+            "TaxAmt": {
+              "id": 300
+            },
+            "Freight": {
+              "id": 301
+            },
+            "CarrierTrackingNumber": {
+              "id": 302
+            },
+            "CustomerPONumber": {
+              "id": 303
+            },
+            "OrderDate": {
+              "id": 304
+            },
+            "DueDate": {
+              "id": 305
+            },
+            "ShipDate": {
+              "id": 306
+            },
+            "CustomerKey1": {
+              "id": 307
+            },
+            "GeographyKey": {
+              "id": 308
+            },
+            "CustomerAlternateKey": {
+              "id": 309
+            },
+            "Title": {
+              "id": 310
+            },
+            "FirstName": {
+              "id": 311
+            },
+            "MiddleName": {
+              "id": 312
+            },
+            "LastName": {
+              "id": 313
+            },
+            "NameStyle": {
+              "id": 314
+            },
+            "BirthDate": {
+              "id": 315
+            },
+            "MaritalStatus": {
+              "id": 316
+            },
+            "Suffix": {
+              "id": 317
+            },
+            "Gender": {
+              "id": 318
+            },
+            "EmailAddress": {
+              "id": 319
+            },
+            "YearlyIncome": {
+              "id": 320
+            },
+            "TotalChildren": {
+              "id": 321
+            },
+            "NumberChildrenAtHome": {
+              "id": 322
+            },
+            "EnglishEducation": {
+              "id": 323
+            },
+            "SpanishEducation": {
+              "id": 324
+            },
+            "FrenchEducation": {
+              "id": 325
+            },
+            "EnglishOccupation": {
+              "id": 326
+            },
+            "SpanishOccupation": {
+              "id": 327
+            },
+            "FrenchOccupation": {
+              "id": 328
+            },
+            "HouseOwnerFlag": {
+              "id": 329
+            },
+            "NumberCarsOwned": {
+              "id": 330
+            },
+            "AddressLine1": {
+              "id": 331
+            },
+            "AddressLine2": {
+              "id": 332
+            },
+            "Phone": {
+              "id": 333
+            },
+            "DateFirstPurchase": {
+              "id": 334
+            },
+            "CommuteDistance": {
+              "id": 335
+            }
+          },
+          "concat_fullname": {
+            "FirstName": {
+              "id": 336
+            },
+            "NewFullName": {
+              "id": 337
+            },
+            "MiddleName": {
+              "id": 338
+            },
+            "LastName": {
+              "id": 339
+            }
+          }
+        }
+      }
+    }
+  }
+}
