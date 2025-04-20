@@ -1,0 +1,110 @@
+{
+    "ASSOCIATED_SOURCE_INSTANCE": {
+      "attributes": ["NAME"],
+      "children": [],
+      "parents": ["INSTANCE"],
+      "occurrences": 2
+    },
+    "CONNECTOR": {
+      "attributes": ["FROMFIELD", "FROMINSTANCE", "FROMINSTANCETYPE", "TOFIELD", "TOINSTANCE", "TOINSTANCETYPE"],
+      "children": [],
+      "parents": ["MAPPING"],
+      "occurrences": 5
+    },
+    "ERPINFO": {
+      "attributes": [],
+      "children": [],
+      "parents": ["MAPPING"],
+      "occurrences": 2
+    },
+    "FOLDER": {
+      "attributes": ["NAME", "GROUP", "OWNER", "SHARED", "DESCRIPTION", "PERMISSIONS", "UUID"],
+      "children": ["SOURCE", "TARGET", "MAPPING", "WORKFLOW"],
+      "parents": ["REPOSITORY"],
+      "occurrences": 1
+    },
+    "INSTANCE": {
+      "attributes": ["NAME", "TRANSFORMATION_NAME", "TRANSFORMATION_TYPE", "TYPE", "REUSABLE", "DBDNAME"],
+      "children": ["ASSOCIATED_SOURCE_INSTANCE"],
+      "parents": ["MAPPING"],
+      "occurrences": 7
+    },
+    "MAPPING": {
+      "attributes": ["ISVALID", "NAME", "OBJECTVERSION", "VERSIONNUMBER"],
+      "children": ["TRANSFORMATION", "INSTANCE", "CONNECTOR", "TARGETLOADORDER", "ERPINFO"],
+      "parents": ["FOLDER"],
+      "occurrences": 2
+    },
+    "POWERMART": {
+      "attributes": ["CREATION_DATE", "REPOSITORY_VERSION"],
+      "children": ["REPOSITORY"],
+      "parents": [],
+      "occurrences": 1
+    },
+    "REPOSITORY": {
+      "attributes": ["NAME", "VERSION", "CODEPAGE", "DATABASETYPE"],
+      "children": ["FOLDER"],
+      "parents": ["POWERMART"],
+      "occurrences": 1
+    },
+    "SESSION": {
+      "attributes": {"IS Sketchy": true},
+      "children": [],
+      "parents": ["WORKFLOW"],
+      "occurrences": 2
+    },
+    "SOURCE": {
+      "attributes": ["DATABASETYPE", "DBDNAME", "NAME", "OBJECTVERSION", "OWNERNAME", "VERSIONNUMBER"],
+      "children": ["SOURCEFIELD"],
+      "parents": ["FOLDER"],
+      "occurrences": 2
+    },
+    "SOURCEFIELD": {
+      "attributes": ["DATATYPE", "FIELDNUMBER", "FIELDPROPERTY", "FIELDTYPE", "HIDDEN", "KEYTYPE", "LENGTH", "LEVEL", "NAME", "NULLABLE", "REFERENCEDDBD", "REFERENCEDFIELD", "REFERENCEDTABLE"],
+      "children": [],
+      "parents": ["SOURCE"],
+      "occurrences": 5
+    },
+    "TARGET": {
+      "attributes": ["CONSTRAINT", "DATABASETYPE", "NAME", "DBDNAME", "OWNERNAME"],
+      "children": ["TARGETFIELD"],
+      "parents": ["FOLDER"],
+      "occurrences": 1
+    },
+    "TARGETFIELD": {
+      "attributes": ["DATATYPE", "FIELDNUMBER", "KEYTYPE", "NAME", "NULLABLE", "PRECISION", "SCALE"],
+      "children": [],
+      "parents": ["TARGET"],
+      "occurrences": 3
+    },
+    "TARGETLOADORDER": {
+      "attributes": ["ORDER", "TARGETINSTANCE"],
+      "children": [],
+      "parents": ["MAPPING"],
+      "occurrences": 2
+    },
+    "TASKINSTANCE": {
+      "attributes": ["NAME", "TASKNAME", "TASKTYPE"],
+      "children": [],
+      "parents": ["WORKFLOW"],
+      "occurrences": 2
+    },
+    "TRANSFORMATION": {
+      "attributes": ["NAME", "OBJECTVERSION", "REUSABLE", "TYPE", "VERSIONNUMBER"],
+      "children": ["TRANSFORMFIELD"],
+      "parents": ["MAPPING"],
+      "occurrences": 2
+    },
+    "TRANSFORMFIELD": {
+      "attributes": ["DATATYPE", "DEFAULTVALUE", "NAME", "PORTTYPE", "PRECISION", "SCALE"],
+      "children": [],
+      "parents": ["TRANSFORMATION"],
+      "occurrences": 8
+    },
+    "WORKFLOW": {
+      "attributes": ["ISENABLED", "ISRUNNABLESERVICE", "ISSERVICE", "ISVALID", "NAME", "REUSABLE_SCHEDULER", "SCHEDULERNAME", "SERVERNAME", "SERVER_DOMAINNAME", "SUSPEND_ON_ERROR", "TASKS_MUST_RUN_ON_SERVER", "VERSIONNUMBER"],
+      "children": ["SESSION", "TASKINSTANCE"],
+      "parents": ["FOLDER"],
+      "occurrences": 1
+    }
+  }

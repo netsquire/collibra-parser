@@ -26,7 +26,7 @@ class IDGenerator:
         key = (object_type, object_name, field)
         return self.id_map.get(key)
 
-def db_structure(elem: ET.Element, id_gen: IDGenerator) -> Dict[str, any]:
+def db_tree(elem: ET.Element, id_gen: IDGenerator) -> Dict[str, any]:
     """Process SOURCE or TARGET, returning db object structure."""
     elem_tag = elem.tag
     db_name = elem.get("DBDNAME")
@@ -40,7 +40,7 @@ def db_structure(elem: ET.Element, id_gen: IDGenerator) -> Dict[str, any]:
         fields[field_name] = {"id": field_id}    
     return {db_name: {schema_name: {table_name: fields}}}
 
-def process_transformation(elem: ET.Element, id_gen: IDGenerator) -> Dict[str, any]:
+def transformation_graph(elem: ET.Element, id_gen: IDGenerator) -> Dict[str, any]:
     """Process TRANSFORMATION, returning transformation structure."""
     trans_name = elem.get("NAME")
     fields = {}
@@ -60,7 +60,7 @@ def mapping_graph(elem: ET.Element, id_gen: IDGenerator) -> tuple[Dict[str, any]
     instance_types = {}  # Maps instance name to its type (SOURCE, TARGET, TRANSFORMATION)
     
     for trans in elem.findall("TRANSFORMATION"):
-        trans_data = process_transformation(trans, id_gen)
+        trans_data = transformation_graph(trans, id_gen)
         transformations.update(trans_data)
     
     for instance in elem.findall("INSTANCE"):
@@ -118,8 +118,7 @@ def extract_lineage(elem: ET.Element, id_gen: IDGenerator, instance_types: Dict[
         if from_id and to_id:
             lineage.append([from_id, to_id])
         else:
-            logging.info(f"Unmapped lineage: {from_instance}.{from_field} ({from_type}) -> {to_instance}.{to_field} ({to_type})")
-    
+            logging.info(f"Unmapped lineage: {from_instance}.{from_field} ({from_type}) -> {to_instance}.{to_field} ({to_type})")    
     return lineage
 
 def merge_dicts(d1: Dict, d2: Dict) -> Dict:
@@ -133,7 +132,26 @@ def merge_dicts(d1: Dict, d2: Dict) -> Dict:
     return d1
 
 def parse_xml(file_path: str) -> tuple[Dict, Dict, List[List[int]]]:
-    """Parse XML and generate three outputs."""
+    """Parse XML and generate three outputs:
+    <POWERMART>
+            <REPOSITORY>
+                <FOLDER>
+                    <SOURCE>
+                        <SOURCEFIELD>
+                    <TARGET>
+                        <TARGETFIELD>
+                    <MAPPING>
+                        <TRANSFORMATION>
+                            <TRANSFORMFIELD>
+                        <INSTANCE>
+                            <ASSOCIATED_SOURCE_INSTANCE>
+                        <CONNECTOR>
+                        <TARGETLOADORDER>
+                        <ERPINFO>
+                    <WORKFLOW>
+                        <SESSION>
+                        <TASKINSTANCE>
+    """
     id_gen = IDGenerator()
     db_objects = {}
     informatica_objects = {}
@@ -146,19 +164,29 @@ def parse_xml(file_path: str) -> tuple[Dict, Dict, List[List[int]]]:
         repo = root.find(".//REPOSITORY")
         repo_name = repo.get("NAME") if repo is not None else "N/A"
         
-        # Process SOURCE and TARGET as database objects
+        # SOURCE and TARGET as database objects
         all_source_target = root.findall(".//SOURCE") + root.findall(".//TARGET")
         for elem in all_source_target:
-            db_objects = merge_dicts(db_objects, db_structure(elem, id_gen))
+            db_objects = merge_dicts(db_objects, db_tree(elem, id_gen))
         
-        # Process MAPPING for initial transformations and lineage
+        # MAPPING for initial transformations and lineage
         mappings = root.findall(".//MAPPING")
         for mapping in mappings:
+            mapping_name = mapping.get("NAME")
             mapping_data, mapping_instance_types = mapping_graph(mapping, id_gen)
             informatica_objects = merge_dicts(informatica_objects, {repo_name: mapping_data})
+            
+            print(f"---\nMapping: {mapping_name}")
+            print(f"---\nInstance Types: {mapping_instance_types}")
             for instance_name, instance_type in mapping_instance_types.items():
-                instance_types[mapping.get("NAME")][instance_name] = instance_type
-            lineage.extend(extract_lineage(mapping, id_gen, instance_types))
+                instance_types[mapping_name][instance_name] = instance_type
+                print(f"---\nInstance: {instance_name}, Type: {instance_type}")
+
+            print(f"---\nMapping Data: {mapping_data}")
+            print(f"---\nMapping: {mapping}")
+            lineage_update = extract_lineage(mapping, id_gen, mapping_instance_types)
+            print(f"---\nLineage Update: {lineage_update}")
+            lineage.extend(lineage_update)
         
         # Update informatica_objects with WORKFLOW
         # Workflow consists of multiple sessions, each session references to mapping

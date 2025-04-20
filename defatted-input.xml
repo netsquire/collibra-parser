@@ -1,0 +1,18 @@
+<POWERMART>
+<REPOSITORY>
+<FOLDER>
+    <SOURCE>
+        <SOURCEFIELD>
+    <TARGET>
+        <TARGETFIELD>
+    <MAPPING>
+        <TRANSFORMATION>
+            <TRANSFORMFIELD>
+        <INSTANCE>
+            <ASSOCIATED_SOURCE_INSTANCE>
+        <CONNECTOR>
+        <TARGETLOADORDER>
+        <ERPINFO>
+    <WORKFLOW>
+        <SESSION>
+        <TASKINSTANCE>
