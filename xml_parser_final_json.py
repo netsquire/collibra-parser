@@ -7,6 +7,26 @@ import logging
 # Setup logging
 logging.basicConfig(filename="parse_errors.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+# Constants, enums
+class EntityNames:
+    """Enum-like class for entity names."""
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
+    TRANSFORMATION = "TRANSFORMATION"
+    MAPPING = "MAPPING"
+    WORKFLOW = "WORKFLOW"
+    SOURCEFIELD = "SOURCEFIELD"
+    TARGETFIELD = "TARGETFIELD"
+    TRANSFORMFIELD = "TRANSFORMFIELD"
+    CONNECTOR = "CONNECTOR"
+    INSTANCE = "INSTANCE"
+    ASSOC_SOURCE_INSTANCE = "ASSOCIATED_SOURCE_INSTANCE"
+    TASKINSTANCE = "TASKINSTANCE"
+    DB_NAME = "DBDNAME"
+    OWNER_NAME = "OWNERNAME"
+    NAME = "NAME"
+    MAPPING_NAME = "MAPPINGNAME"
+
 class IDGenerator:
     """Generate unique IDs for columns."""
     def __init__(self):
@@ -31,9 +51,9 @@ def db_tree(elem: ET.Element, id_gen: IDGenerator) -> Dict[str, any]:
     elem_tag = elem.tag
     db_name = elem.get("DBDNAME")
     schema_name = elem.get("OWNERNAME")
-    table_name = elem.get("NAME")    
+    table_name = elem.get(EntityNames.NAME)    
     fields = {}
-    field_tag = "SOURCEFIELD" if elem_tag == "SOURCE" else "TARGETFIELD"
+    field_tag = "SOURCEFIELD" if elem_tag == EntityNames.SOURCE else EntityNames.TARGETFIELD
     for field in elem.findall(field_tag):
         field_name = field.get("NAME")
         field_id = id_gen.get_id(elem_tag, table_name, field_name)
@@ -132,7 +152,8 @@ def merge_dicts(d1: Dict, d2: Dict) -> Dict:
     return d1
 
 def parse_xml(file_path: str) -> tuple[Dict, Dict, List[List[int]]]:
-    """Parse XML and generate three outputs:
+    """Parse XML and generate three outputs.
+    (Invalid) XML structure for clarity:
     <POWERMART>
             <REPOSITORY>
                 <FOLDER>
@@ -221,3 +242,4 @@ if __name__ == "__main__":
     save_to_json(db_objects, f"{folder}/db_objects.json")
     save_to_json(informatica_objects, f"{folder}/informatica_objects.json")
     save_to_json(lineage, f"{folder}/column_lineage.json")
+    print(f"X-Ray JSON files created in '{folder}' with collected errors, mostly unmapped lineage(s) in 'parse_errors.log'.")
